@@ -1,3 +1,4 @@
+#순열을 이용한 풀이
 import sys
 from itertools import permutations
 input =sys.stdin.readline
