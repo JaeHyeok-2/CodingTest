@@ -16,6 +16,9 @@ for i in range(1,n+1) :
 def topology_sort() :
     result = copy.deepcopy(time)    #result 의 초기값은 time으로 설정 -> 만약 어떤과목도 선수강과목이 없다면, result가 답이므로.
     q = deque()
+    for i in range(1,n+1) :
+        if indegree[i] == 0 :
+            q.append(i)
 
     while q:
         now = q.popleft()
