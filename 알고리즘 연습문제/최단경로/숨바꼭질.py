@@ -23,9 +23,9 @@ def dijkstra(start) :
                 heapq.heappush(q,(cost,next_node))
 
 dijkstra(1)
-maximum = max(distance)
-count = distance.count(maximum)
-index = distance.index(maximum)
+maximum = max(distance) #최대 거리의 번호
+count = distance.count(maximum)  #최대거리의 번호 개수
+index = distance.index(maximum)  #제일 왼쪽의 인덱스
 print(index,maximum,count, sep= " ")
 
 
