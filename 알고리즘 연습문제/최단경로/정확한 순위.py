@@ -10,7 +10,7 @@ for i in range(1,n+1):
     for j in range(1,n+1):
         if i == j :
             graph[i][j] = 0
-
+#플로이드 와샬
 for k in range(1,n+1):
     for i in range(1,n+1):
         for j in range(1,n+1):
