@@ -11,5 +11,3 @@ for _ in range(int(input())) :
     dp = [0] *(n+1)
     # 정렬하면안됌. 소설에는 순서가 있기때문
     dp[0] = arr[0] # 첫 페이지
-    for i in range(1,n) :
-        dp[i] = 
