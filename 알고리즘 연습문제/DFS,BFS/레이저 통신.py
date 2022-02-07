@@ -1,42 +1,46 @@
+import heapq
 import sys
-from collections import deque
-input= sys.stdin.readline
-INF = int(1e4)
-
+input = sys.stdin.readline
 w,h = map(int,input().split())
-board = [input().rstrip() for _ in range(h)]
-visited = [[INF]*w for _ in range(h)]
-start = []
 
+board = [list(input().strip()) for _ in range(h)]
+visited= [[int(1e9)] * w for _ in range(h)]
+
+laser = []
 for i in range(h) :
     for j in range(w) :
         if board[i][j] == 'C' :
-            start.append((i,j))
+            laser.append((i,j))
 
-(sr,sc),(er,ec) = start
+sx,sy = laser[0]
+ex,ey = laser[1]
+heap = []
+visited[sx][sy] = 0
 
-dx = [1,0,-1,0]
-dy = [0,1,0,-1]
-def bfs(x,y) :
-    visited[x][y] = 0
-    q = deque([(x,y)])
-    while q :
-        r,c = q.popleft()
+dx = (1,0,-1,0)
+dy = (0,1,0,-1)
+def dfs() :
+    heapq.heappush(heap,(0,sx,sy))
+
+    while heap:
+        d,x,y = heapq.heappop(heap)
+        visited[x][y] = d
         for i in range(4) :
-            nr = r + dx[i]
-            nc = c + dy[i]
+            nx = x + dx[i]
+            ny = y + dy[i]
             while True :
-                if not ( 0<=nr < h and 0<= nc < w) :
+                if not(0<=nx<h and 0<=ny<w) :
                     break
-                if board[nr][nc] == '*' :
+                if board[nx][ny] == '*' :
                     break
-                if visited[nr][nc] < visited[r][c]+ 1:
+                if visited[nx][ny] < visited[x][y] +1 :
                     break
-                visited[nr][nc] = visited[r][c] +1
-                q.append((nr,nc))
-                nr += dx[i] # 한칸전진
-                nc += dy[i]
 
-bfs(sr,sc)
-print(visited[er][ec]-1)
-
+                visited[nx][ny] = visited[x][y] +1
+                heapq.heappush(heap,(visited[x][y]+1,nx,ny))
+                nx += dx[i]
+                ny += dy[i]
+                if visited[ex][ey] != int(1e9) :
+                    return
+dfs()
+print(visited[ex][ey]-1)
