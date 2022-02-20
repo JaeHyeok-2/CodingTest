@@ -32,6 +32,8 @@ def bfs():
                 light[tx][ty] = 1
                 result += 1
 
+                
+
                 for i in range(4):
                     nx = tx + dx[i]
                     ny = ty + dy[i]
