@@ -1,4 +1,4 @@
-# 프로그래머스
+# Programmers
 #https://programmers.co.kr/learn/courses/30/lessons/17677
 
 from collections import Counter

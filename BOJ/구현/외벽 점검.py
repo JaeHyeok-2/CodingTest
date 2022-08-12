@@ -1,4 +1,4 @@
-# 프로그래머스 https://programmers.co.kr/learn/courses/30/lessons/60062
+# Programmers https://programmers.co.kr/learn/courses/30/lessons/60062
 from itertools import permutations
 def solution(n, weak, dist):
     length = len(weak) #점검할 외벽의 개수

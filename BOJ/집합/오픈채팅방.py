@@ -1,4 +1,4 @@
-# 프로그래머스 https://programmers.co.kr/learn/courses/30/lessons/42888
+# Programmers https://programmers.co.kr/learn/courses/30/lessons/42888
 def solution(record):
     answer = []
     dic = {} #딕셔너리 생성
